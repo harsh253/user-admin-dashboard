@@ -9,14 +9,6 @@ mongoose.connect('mongodb://localhost:27017/userDB', {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine' , 'ejs');
 
-// var delId;
-
-// $(document).ready(function(){
-//     $('.delUser').submit(function(){
-//         console.log(this);
-//     });
-// });
-
 const userDataSchema = {
     username: String,
     password: String,
@@ -66,7 +58,6 @@ app.get('/:userid/:edit', function(req,res){
         res.render('edit-form',{
             data: foundItems
         });
-        // console.log(foundItems);
     });
 });
 
