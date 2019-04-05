@@ -1,0 +1,32 @@
+<%- include('./partials/header.ejs') -%>
+<h1>User Data</h1>
+</br>
+<table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">User Id</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Profile</th>
+                <th scope="col">Destroy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0; i<users.length; i++){ %>
+                <tr>
+                    <td><%= users[i].id %></td>
+                    <td><%= users[i].username %></td>
+                    <td><%= users[i].email %></td>
+                    <td><a href="/<%= users[i].id %>/edit">Edit Profile</a></td>
+                    <td>
+                        <form action="/" method="post">
+                            <button class="btn btn-danger" type="submit" name="delBtn" value="<%= users[i].id %>">X</button>
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <p class="create-new-user"><a href="create">Create New User</a></p>
+<%- include('./partials/footer.ejs') -%>    
